@@ -31,13 +31,16 @@ export default function App () {
   };
 
   return (
+    <div>
+      <SavedList list={[]} />
     <Switch>
       <Route path="/movies/:movieID">
-        <Movie movies={movieList} />
+        <Movie />
       </Route>
       <Route path="/">
         <MovieList movies={movieList} />
       </Route>
     </Switch>
+    </div>
   );
 }
