@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useRouteMatch, useParams, Route, Switch } from 'react-router-dom';
 
 export default function Movie(props) {
   const [movie, setMovie] = useState();
 
-  const {movieID} = useParams();
-  // let id = 1;
-  // // Change ^^^ that line and use a hook to obtain the :id parameter from the URL
+  let id = useParams().movieID;
+  // Change ^^^ that line and use a hook to obtain the :id parameter from the URL
 
   useEffect(() => {
     axios
@@ -14,9 +14,7 @@ export default function Movie(props) {
       .then(response => {
         // Study this response with a breakpoint or log statements
         // and set the response data as the 'movie' slice of state
-        setMovie(response.find(item => {
-          return item.id == movieID;
-        }))
+        setMovie(response.data)
       })
       .catch(error => {
         console.error(error);
