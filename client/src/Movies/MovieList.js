@@ -1,4 +1,5 @@
 import React from 'react';
+import {useHistory, useParams, useRouteMatch} from 'react-router-dom'
 
 export default function MovieList(props) {
   return (
@@ -12,6 +13,10 @@ export default function MovieList(props) {
 
 function MovieDetails(props) {
   const { title, director, metascore } = props.movie;
+
+  const history = useHistory()
+
+  const routeToMovie = () =>
 
   return (
     <div className="movie-card">
